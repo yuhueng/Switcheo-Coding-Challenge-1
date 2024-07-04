@@ -20,3 +20,6 @@ To improve, we need to ensure all variables are correctly defined and used in th
 ### Unnecessary Mapping
 The balances are mapped twice (`sortedBalances.map` and `formattedBalances.map`) leading to inefficient processing.
 To improve it, we can combine the mapping operations into a single pass.
+
+## Refactored Code
+messy_react.tsx contains my implementation for the refactored code.
