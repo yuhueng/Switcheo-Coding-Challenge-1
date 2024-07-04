@@ -2,63 +2,151 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.container {
-  padding: 20px;
-  max-width: 400px;
-  margin: auto;
-  background-color: #f0f0f0;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #e0fbfc; /* Replace with your desired background color */
 }
 
 h2 {
-  text-align: center;
-  margin-bottom: 20px;
+  color: #98c1d9;
+  font-weight: 400;
 }
 
-.row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+.dark-text {
+  color: #293241;
+  font-weight: bold;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-.column {
-  flex: 1;
-  margin-right: 10px;
+.light-text {
+  color: #e0fbfc;
+  font-weight: bold;
+  font-size: larger;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-.column:last-child {
-  margin-right: 0;
+
+/* Header */
+.header-container {
+  background-color: #293241;
+  padding: 15px;
+  margin-bottom: 60px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 5px;
+  border-radius: 50px 180px 50px 180px;
 }
 
+
+/* Currency Swap Container */
 label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  color: #98c1d9;
+  font-weight: 400;
   display: block;
   margin-bottom: 5px;
 }
 
-input, select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.currency-swap-container {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  width: 800px;
+  margin: auto;
+  background-color: #293241;
+  border-radius: 150px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+.row-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+.column-container {
+  flex: 1;
+  margin-right: 30px;
+}
+.column:last-child {
+  margin-right: 0;
+}
+
+input, select {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.currency-selector {
+  display: flex;
+  align-items: center;
+}
+
+.currency-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+}
+
+
+/* Swap Button */
+.swap-button {
+  width: 120px;
+  border-radius: 20px;  
+  border: #e0fbfc solid;
+}
+.swap-button button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.swap-icon {
+  transform: rotate(90deg);
+}
 button {
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #0056b3;
+/* Table Container */
+.table-container {
+  margin-left: 50px;
+  margin-right: 50px;
+  background-color: #293241;
+  color: #e0fbfc;
+  border: #293241 solid;
+  border-radius: 20px;
+  padding: 10px 30px 40px 30px;
+  max-height: 30rem /* 320px */;
+  overflow-y: auto;
 }
 
-.swap-button, .swap-now-button {
-  text-align: center;
-  margin-bottom: 20px;
+th{
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;;
+}
+
+/* Toggle Button */
+.toggle-button {
+  margin-top: 20px;
+  border-radius: 40px;
+  color: #293241;
+  border: #98c1d9 solid;
+  background-color: #e0fbfc;
+  font-weight: bold;
+  font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; ;
+}
+
+.toggle-button:hover {
+  border: #e0fbfc solid;
+  background-color: #293241 ;
+  color: #e0fbfc;
 }

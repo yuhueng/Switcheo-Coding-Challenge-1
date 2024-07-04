@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons';
 
 function CurrencySwap() {
   const [amountFrom, setAmountFrom] = useState('');
@@ -67,69 +69,100 @@ function CurrencySwap() {
         setCurrencyTo(currency);
         calculateAmountTo(amountFrom, currencyFrom, currency);
       };
+
+      const handleSwap = () => {
+        setAmountFrom(amountTo);
+        setAmountTo(amountFrom);
+        setCurrencyFrom(currencyTo);
+        setCurrencyTo(currencyFrom);
+      };
+
+      const handleImageError = (e) => {
+        e.target.src = '/tokens/default.svg';
+      };
     
 
-  return (
-    <div className="container">
-      <h2>Currency Swap</h2>
-      <form onSubmit={(e) => e.preventDefault()}>
-        <div className="row">
-          <div className="column">
-            <label>You Send:</label>
-            <input
-              type="number"
-              value={amountFrom}
-              onChange={handleAmountFromChange}
-              placeholder="Enter amount"
-            />
-          </div>
-          <div className="column">
-            <label>Currency:</label>
-            <select
-              value={currencyFrom}
-              onChange={handleCurrencyFromChange}
-            >
-              {exchangeRates.map(rate => (
-                <option key={rate.currency} value={rate.currency}>
-                  {rate.currency}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
+      return (
+        <div className="currency-swap-container">
+          <h2 className='text-3xl text-center text-white font-mono underline'>Currency Swap</h2>
+          <form onSubmit={(e) => e.preventDefault()}>
 
-        <div className="swap-button">
-          <button>
-            Swap
-          </button>
-        </div>
+            <div className="row-container">
+              <div className="column-container">
+                <label>Sell:</label>
+                <input
+                  type="number"
+                  value={amountFrom}
+                  onChange={handleAmountFromChange}
+                  placeholder="Enter amount"
+                />
+              </div>
+              <div className="column">
+                <label>Currency:</label>
+                <div className="currency-selector">
+                  <img
+                    src={`/tokens/${currencyFrom}.svg`}
+                    alt={currencyFrom}
+                    className="currency-icon"
+                    onError={handleImageError}
+                  />
+                  <select
+                    value={currencyFrom}
+                    onChange={handleCurrencyFromChange}
+                  >
+                    {exchangeRates.map(rate => (
+                      <option key={rate.currency} value={rate.currency}>
+                        {rate.currency}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <div className="swap-button">
+                <button type="button" onClick={handleSwap}>
+                  <FontAwesomeIcon icon={faExchangeAlt} size="2x" className='swap-icon'/>
+                </button>
+              </div>
+            </div>
 
-        <div className="row">
-          <div className="column">
-            <label>You Get:</label>
-            <input
-              type="number"
-              value={amountTo}
-              onChange={handleAmountToChange}
-            />
-          </div>
-          <div className="column">
-            <label>Currency:</label>
-            <select
-              value={currencyTo}
-              onChange={handleCurrencyToChange}
-            >
-              {exchangeRates.map(rate => (
-                <option key={rate.currency} value={rate.currency}>
-                  {rate.currency}
-                </option>
-              ))}
-            </select>
-          </div>
+    
+            <div className="row-container">
+              <div className="column-container">
+                <label>Buy:</label>
+                <input
+                  type="number"
+                  value={amountTo}
+                  onChange={handleAmountToChange}
+                  placeholder="Enter amount"
+                />
+              </div>
+              <div className="column">
+                <label>Currency:</label>
+                <div className="currency-selector">
+                  <img
+                    src={`/tokens/${currencyTo}.svg`}
+                    alt={currencyTo}
+                    className="currency-icon"
+                    onError={handleImageError}
+                  />
+                  <select
+                    value={currencyTo}
+                    onChange={handleCurrencyToChange}
+                  >
+                    {exchangeRates.map(rate => (
+                      <option key={rate.currency} value={rate.currency}>
+                        {rate.currency}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
-  );
-}
+      );
+    }
 
 export default CurrencySwap;
