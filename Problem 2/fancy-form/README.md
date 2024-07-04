@@ -13,7 +13,7 @@ This project is a React application that allows users to swap currencies and vie
 - **Toggle Table**: Show or hide the price table using a button.
 - **Responsive Design**: The layout adjusts based on whether the table is visible or not.
 
-- ## Installation
+## Installation
 1. git  clone
 2. npm install
 3. npm start
